@@ -1,0 +1,12 @@
+# Logs
+logs
+*.log
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.env
+node_modules/
+package-lock.json
+data.json
+Procfile

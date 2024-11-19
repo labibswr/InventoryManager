@@ -1,0 +1,48 @@
+body{
+    background: rgb(75, 75, 75);
+}
+
+
+hr {
+    color: #ffffff;
+}
+
+.nav-container {
+background: rgb(0, 71, 129);
+}
+
+.nav-item:hover {
+    color:rgb(211, 182, 55)
+}
+
+.prof-btn {
+    color:rgb(211, 182, 55)
+}
+
+
+@media (min-width: 990px) {
+    .dropdown-menu {
+        transform: translateX(-60%);
+    }
+
+}
+
+.my-card {
+    background-color: rgb(0, 71, 129);
+}
+
+.my-card:hover{
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+    h4, h3, h6 {
+        color: rgb(211, 182, 55);
+    }
+}
+
+.card-header {
+    background-color: rgb(0, 71, 129);
+}
+
+.card-body {
+    background-color:rgb(109, 172, 223);
+}

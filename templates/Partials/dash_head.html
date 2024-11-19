@@ -1,0 +1,46 @@
+<!--Topside-->
+
+{% load static %}
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <marquee behavior="" direction="">
+                        <h3 class="my-4">USSTM Inventory Page (Admin View)</h3>
+                    </marquee>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header text-white">
+                    Count
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 in-card">
+                            <a class="text-decoration-none text-white" href="{% url 'dashboard-item' %}">
+                                <div class="card my-card shadow text-center text-white p-3">
+                                    <h4>Total Items<i class="fas fa-box"></i></h4>
+                                    <h3>{{total_items}} Items</h3>
+                                    <h6>Cumulative Quantity: {{item_quantity}}</h6>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 in-card">
+                            <a class="text-decoration-none text-dark" href="{% url 'dashboard-loan' %}">
+                                <div class="card my-card shadow text-center text-white p-3">
+                                    <h4>Being Borrowed<i class="fas fa-shipping-fast"></i></h4>
+                                    <h3>{{total_loans}} Sign Outs</h3>
+                                    <h6>Total Quantity: {{loan_quantity}} items</h6>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Topside-->

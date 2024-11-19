@@ -1,0 +1,149 @@
+<div class="container">
+    <div class="row my-5">
+        <div class="col-md-6">
+            <div class="">
+                <canvas id="myChart1" width="400" height="300"></canvas>
+                <script>
+                    var ctx = document.getElementById('myChart1').getContext('2d');
+                    var myChart1 = new Chart(ctx, {
+                        type: 'pie',
+                        data: {
+                            labels: [{% for l in loans %} '{{ l.item.name }}', {%endfor%}],
+                            datasets: [{
+                                label: 'Borrowed',
+                                data: [{% for l in loans %} {{ l.order_quantity }}, {% endfor %}],
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 335, 1)',
+                                    'rgba(225, 106, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)',
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 132, 235, 1)',
+                                    'rgba(255, 6, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 335, 1)',
+                                    'rgba(225, 106, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)',
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 132, 235, 1)',
+                                    'rgba(255, 6, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            plugins: {
+                                legend: {
+                                    labels: {
+                                        color: 'white'  // Set legend text color to white
+                                    }
+                                },
+                                tooltip: {
+                                    bodyColor: 'white',  // Set tooltip text color to white
+                                    titleColor: 'white', // Set tooltip title color to white
+                                }
+                            },
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true,
+                                        color: 'white' // Set y-axis labels color to white
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div>
+                <canvas id="myChart" width="400" height="300"></canvas>
+                <script>
+                    // Data from views.py
+                    var categories = {{ categories|safe }};
+                    var num_cat = {{ num_cat|safe }};
+            
+                    var ctx = document.getElementById('myChart').getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: categories,
+                            datasets: [{
+                                label: 'Loans',
+                                data: num_cat,
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 335, 1)',
+                                    'rgba(225, 106, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)',
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 132, 235, 1)',
+                                    'rgba(255, 6, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 335, 1)',
+                                    'rgba(225, 106, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)',
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 132, 235, 1)',
+                                    'rgba(255, 6, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            plugins: {
+                                legend: {
+                                    labels: {
+                                        color: 'white'  // Set legend text color to white
+                                    }
+                                },
+                                tooltip: {
+                                    bodyColor: 'white',  // Set tooltip text color to white
+                                    titleColor: 'white', // Set tooltip title color to white
+                                }
+                            },
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true,
+                                        color: 'white' // Set y-axis labels color to white
+                                    }
+                                }],
+                                xAxes: [{
+                                    ticks: {
+                                        color: 'white' // Set x-axis labels color to white
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+</div>

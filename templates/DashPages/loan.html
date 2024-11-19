@@ -1,0 +1,42 @@
+{% extends 'Partials/base.html' %}
+{% block title %} Loans {% endblock %}
+
+{% block content %}
+ <!--Table-->
+ <div class="container">
+    <div class="row my-5">
+        <div class="col-md-12">
+            <table class="table bg-white">
+                <thead class="bg-info">
+                    <tr class="text-white">
+                        <th scope="col">Item</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Checked out by</th>
+                        <th scope="col">Student Email</th>
+                        <th scope="col">Check Out Time</th>
+                        <th scope="col">Date Due</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for b in borrowed %}
+                    <tr>
+                        <td>{{ b.item.name }}</td>
+                        <td> {{b.order_quantity}} </td>
+                        <td>{{b.student.first_name}} {{b.student.last_name}}</td>
+                        <td>{{b.student.email}}</td>
+                        <td>{{b.check_out}}</td>
+                        <td>{{b.due_date}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+
+<!--End Table-->
+
+{% endblock %}

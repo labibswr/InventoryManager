@@ -1,0 +1,60 @@
+{% load crispy_forms_tags %}
+<div>
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-md-4">
+                {% for msg in messages %}
+                {% if msg %}
+                <div class="alert alert-{{message.tags}} text-white">
+                    {{msg}}
+                </div>
+                {% endif %}
+                {% endfor%}
+                <div class="text-white p-3">
+                    <h4>Make Request</h4>
+                    <hr>
+                    <!--Adding products to database-->
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <hr>
+                        <input class="btn btn-success btn-block" type="submit" value="Make Request">
+    
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header text-white">
+                        Orders Records
+                    </div>
+                    <div class="card-body bg-white">
+                        <table class="table bg-white">
+                            <thead class="bg-info text-white">
+                                <tr>
+                                    <th scope="col">Product</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Checked Out</th>
+                                    <th scope="col">Due Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for l in loans %}
+                                {% if l.student == user %}
+                                <tr>
+                                    <td>{{l.item.name}}</td>
+                                    <td>{{l.order_quantity}}</td>
+                                    <td>{{l.check_out}}</td>
+                                    <td>{{l.due_date}}</td>
+                                </tr>
+                                {% endif %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    

@@ -1,0 +1,15 @@
+{% extends 'Partials/base.html' %}
+{% block title %} Inventory Home {% endblock %}
+
+{% block content %}
+<!--Showing page only to authenticated staff/superuser-->
+{% if user.is_authenticated and user.is_staff and user.is_superuser %}
+        <!-- Dashboard Header-->
+        {% include 'Partials/dash_head.html' %}
+        <!--Graphs-->
+        {% include 'Partials/graphs.html' %}
+        <!--End Graphs-->
+{% else %}
+        {% include 'DashPages/student_index.html' %}
+{% endif %}
+{% endblock %}

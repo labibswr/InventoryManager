@@ -1,0 +1,30 @@
+{% extends 'Partials/base.html' %}
+{% block title %} Sign In {% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-6 offset-md-3">
+                {% for msg in messages %}
+                {% if msg %}
+                <div class="alert alert-{{message.tags}} text-white">
+                    {{msg}}
+                </div>
+                {% endif %}
+                {% endfor%}
+                <div class="border p-3 text-white">
+                    <h3>Sign In</h3>
+                    <hr>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <input class="btn btn-success" type="submit" value="Login">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

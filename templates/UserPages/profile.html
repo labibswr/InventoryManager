@@ -1,0 +1,54 @@
+{% extends 'Partials/base.html' %}
+{% block title %}Profile{% endblock %}
+
+{% load static %}
+
+{% block content %}
+    <div class="container">
+            <div class="row my-4">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-8 offset-md-2">
+                    <div class="card">
+                        <div class="card-header bg-indigo text-white">
+                            Profile Page
+                        </div>
+                        <div class="card-body bg-white">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <span class="h4"> Profile Information</span> 
+                                    <a class="btn float-right" href="{% url 'change-profile' %}">Edit</a>
+                                    <table class="table table-borderless">
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">User</th>
+                                                <td>{{user.username}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Name</th>
+                                                <td>{{user.first_name}} {{user.last_name}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Email</th>
+                                                <td>{{user.email}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Program</th>
+                                                <td>{{user.profile.program}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <div class="col-md-4">
+                                    <img class="img-thumbnail" src="{{user.profile.image.url}}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+{% endblock %}

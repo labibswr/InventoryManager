@@ -1,0 +1,18 @@
+{% extends 'Partials/base.html' %}
+{% block title %} Singed Out {% endblock %}
+<hr>
+
+{% block content %}
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-6 offset-md-3">
+                    <div class="alert alert-danger">
+                        <h4>Successfully logged out!</h4>
+                        {% csrf_token %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
